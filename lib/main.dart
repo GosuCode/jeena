@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jeena/home.dart';
+import 'package:jeena/pages/landing.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
       title: 'Plants',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: const MyHomePage(),
+          primarySwatch: Colors.green,
+          scaffoldBackgroundColor: Color.fromARGB(220, 230, 255, 246)),
+      home: landing(),
     );
   }
 }
