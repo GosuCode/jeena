@@ -1,6 +1,11 @@
+// import 'dart:html';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:jeena/widgets/home_title.dart';
 
 class home_page extends StatefulWidget {
   const home_page({super.key});
@@ -10,45 +15,109 @@ class home_page extends StatefulWidget {
 }
 
 class home_pageState extends State<home_page> {
+  static List<Map<String, dynamic>> categories = [
+    {"id": 1, "name": "All"},
+    {"id": 2, "name": "Indoor"},
+    {"id": 3, "name": "Outdoor"},
+    {"id": 4, "name": "Aromatic"},
+    {"id": 5, "name": "succulent"},
+  ];
+  Map<String, dynamic>? selectedCategory = categories.first;
   @override
   Widget build(BuildContext context) {
+    double deviceHeight = MediaQuery.of(context).size.height;
+    double deviceWidtht = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: ListView(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: ListView(
+        children: [
+          homeTitle(context),
+          SizedBox(
+            height: deviceHeight * 0.03,
+          ),
+          Row(
             children: [
-              Text(
-                "Best Plants For \nOur Green House",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-              ),
-              // Spacer(), // can be used instead of mainaxisalignment
-              Stack(
-                children: [
-                  CircleAvatar(
-                    radius: 30,
-                    backgroundImage: NetworkImage(
-                        "https://avatars.githubusercontent.com/u/104659592?v=4"),
-                  ),
-                  Positioned(
-                    right: 0,
-                    child: CircleAvatar(
-                      child: Text(
-                        "2",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      radius: 10,
-                      backgroundColor: Theme.of(context).primaryColor,
+              Expanded(
+                child: Card(
+                  elevation: 0,
+                  child: Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                    height: 50,
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Search Plant",
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        )
+                      ],
                     ),
-                  )
-                ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: deviceWidtht * 0.02,
+              ),
+              FloatingActionButton(
+                backgroundColor: Colors.black,
+                splashColor: Colors.grey,
+                onPressed: () {},
+                child: Icon(
+                  Icons.filter_alt_outlined,
+                  color: Colors.white,
+                  size: 30,
+                ),
               )
             ],
           ),
-        )
-      ],
+          SizedBox(
+            height: deviceHeight * 0.025,
+          ),
+          SizedBox(
+            height: deviceHeight * 0.056,
+            // color: Colors.red,
+            child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: categories
+                    .map(
+                      (category) => InkWell(
+                        onTap: () {
+                          setState(() {
+                            selectedCategory = category;
+                          });
+                        },
+                        child: Card(
+                          color: category == selectedCategory
+                              ? Theme.of(context).primaryColor
+                              : Colors.white,
+                          child: Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 10),
+                              child: Text(category['name'],
+                                  style: TextStyle(
+                                      color: category == selectedCategory
+                                          ? Colors.white
+                                          : Colors.green[300]))),
+                        ),
+                      ),
+                    )
+                    .toList()),
+          )
+        ],
+      ),
     ));
   }
 }
