@@ -6,6 +6,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:jeena/widgets/home_title.dart';
+import 'package:jeena/widgets/plant_category.dart';
+import 'package:jeena/widgets/search_plant.dart';
 
 class home_page extends StatefulWidget {
   const home_page({super.key});
@@ -26,7 +28,7 @@ class home_pageState extends State<home_page> {
   @override
   Widget build(BuildContext context) {
     double deviceHeight = MediaQuery.of(context).size.height;
-    double deviceWidtht = MediaQuery.of(context).size.width;
+    double deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -36,52 +38,7 @@ class home_pageState extends State<home_page> {
           SizedBox(
             height: deviceHeight * 0.03,
           ),
-          Row(
-            children: [
-              Expanded(
-                child: Card(
-                  elevation: 0,
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                    height: 50,
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.search,
-                          color: Colors.grey,
-                          size: 30,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Search Plant",
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        SizedBox(
-                          width: 5,
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: deviceWidtht * 0.02,
-              ),
-              FloatingActionButton(
-                backgroundColor: Colors.black,
-                splashColor: Colors.grey,
-                onPressed: () {},
-                child: Icon(
-                  Icons.filter_alt_outlined,
-                  color: Colors.white,
-                  size: 30,
-                ),
-              )
-            ],
-          ),
+          searchPlant(context, deviceWidth),
           SizedBox(
             height: deviceHeight * 0.025,
           ),
@@ -93,26 +50,13 @@ class home_pageState extends State<home_page> {
                 children: categories
                     .map(
                       (category) => InkWell(
-                        onTap: () {
-                          setState(() {
-                            selectedCategory = category;
-                          });
-                        },
-                        child: Card(
-                          color: category == selectedCategory
-                              ? Theme.of(context).primaryColor
-                              : Colors.white,
-                          child: Container(
-                              alignment: Alignment.center,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 10),
-                              child: Text(category['name'],
-                                  style: TextStyle(
-                                      color: category == selectedCategory
-                                          ? Colors.white
-                                          : Colors.green[300]))),
-                        ),
-                      ),
+                          onTap: () {
+                            setState(() {
+                              selectedCategory = category;
+                            });
+                          },
+                          child: plantCategory(
+                              context, category, selectedCategory)),
                     )
                     .toList()),
           )

@@ -36,7 +36,7 @@ class _landingState extends State<landing> {
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.black,
         showSelectedLabels: false,
-        selectedIconTheme: IconThemeData(size: 35.0),
+        selectedIconTheme: IconThemeData(size: 30.0),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
