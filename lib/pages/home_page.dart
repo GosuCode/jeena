@@ -24,7 +24,7 @@ class home_pageState extends State<home_page> {
     {"id": 4, "name": "Aromatic"},
     {"id": 5, "name": "succulent"},
   ];
-  Map<String, dynamic>? selectedCategory = categories.first;
+  Map<String, dynamic> selectedCategory = categories.first;
   @override
   Widget build(BuildContext context) {
     double deviceHeight = MediaQuery.of(context).size.height;
@@ -42,24 +42,16 @@ class home_pageState extends State<home_page> {
           SizedBox(
             height: deviceHeight * 0.025,
           ),
-          SizedBox(
-            height: deviceHeight * 0.056,
-            // color: Colors.red,
-            child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: categories
-                    .map(
-                      (category) => InkWell(
-                          onTap: () {
-                            setState(() {
-                              selectedCategory = category;
-                            });
-                          },
-                          child: plantCategory(
-                              context, category, selectedCategory)),
-                    )
-                    .toList()),
-          )
+          plantCategory(
+              context: context,
+              deviceHeight: deviceHeight,
+              categories: categories,
+              selectedCategory: selectedCategory,
+              onClick: (Map<String, dynamic> category) {
+                setState(() {
+                  selectedCategory = category;
+                });
+              })
         ],
       ),
     ));

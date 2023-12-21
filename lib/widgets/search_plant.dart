@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget searchPlant(BuildContext context, deviceWidth) {
+Widget searchPlant(BuildContext context, double deviceWidth) {
   return Row(
     children: [
       Expanded(
