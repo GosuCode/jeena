@@ -99,7 +99,7 @@ class home_pageState extends State<home_page> {
           Container(
             height: deviceHeight * 0.31,
             child: ListView.builder(
-                itemCount: 3,
+                itemCount: 5,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Card(
@@ -113,30 +113,48 @@ class home_pageState extends State<home_page> {
                         color: Colors.white,
                         child: Column(
                           children: [
-                            Card(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: SizedBox(
-                                  height: deviceHeight * 0.16,
-                                  child: Container(
-                                    height: deviceHeight * 0.17,
-                                    width: double.infinity,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image.network(
-                                        "https://hips.hearstapps.com/hmg-prod/images/summer-flowers-bacopa-1648068199.jpg",
-                                        fit: BoxFit.fill,
+                            Stack(
+                              children: [
+                                Card(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: SizedBox(
+                                      height: deviceHeight * 0.16,
+                                      child: Container(
+                                        height: deviceHeight * 0.17,
+                                        width: double.infinity,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          child: Image.network(
+                                            products[index].productImage,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
                                       ),
+                                    )),
+                                Positioned(
+                                  top: 10,
+                                  right: 10,
+                                  child: InkWell(
+                                    onTap: () {},
+                                    child: Icon(
+                                      Icons.favorite,
+                                      color: Colors.white,
+                                      size: 25,
                                     ),
                                   ),
-                                )),
+                                )
+                              ],
+                            ),
                             Expanded(
                                 child: Container(
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Expanded(
-                                    child: Container(
+                                    child: SizedBox(
                                       height: double.maxFinite,
                                       child: Column(
                                         mainAxisAlignment:
@@ -145,13 +163,15 @@ class home_pageState extends State<home_page> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            "Category",
+                                            products[index].category,
                                             style: TextStyle(
                                                 fontSize: 15,
                                                 color: Colors.grey),
                                           ),
                                           Text(
-                                            "Flower Name",
+                                            products[index].productName,
+                                            maxLines: 1,
+                                            overflow: TextOverflow.clip,
                                             style: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold),
@@ -163,7 +183,7 @@ class home_pageState extends State<home_page> {
                                                 color: Colors.grey),
                                           ),
                                           Text(
-                                            "\$45.5",
+                                            '\$ ${products[index].price}',
                                             style: TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold),
