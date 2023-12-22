@@ -11,6 +11,7 @@ import 'package:jeena/models/product_model.dart';
 import 'package:jeena/widgets/home_title.dart';
 import 'package:jeena/widgets/plant_cards.dart';
 import 'package:jeena/widgets/plant_category.dart';
+import 'package:jeena/widgets/popular_plants.dart';
 import 'package:jeena/widgets/search_plant.dart';
 
 class home_page extends StatefulWidget {
@@ -103,11 +104,9 @@ class home_pageState extends State<home_page> {
           ),
           Text(
             'Popular',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          SizedBox(
-            height: deviceHeight * 0.025,
-          ),
+          popularPlants(deviceHeight, deviceWidth, products),
         ],
       ),
     ));
