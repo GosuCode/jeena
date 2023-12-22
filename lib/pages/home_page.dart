@@ -97,7 +97,7 @@ class home_pageState extends State<home_page> {
             height: deviceHeight * 0.025,
           ),
           Container(
-            height: deviceHeight * 0.3,
+            height: deviceHeight * 0.31,
             child: ListView.builder(
                 itemCount: 3,
                 scrollDirection: Axis.horizontal,
@@ -106,7 +106,7 @@ class home_pageState extends State<home_page> {
                     elevation: 2,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 5, horizontal: 10),
+                          vertical: 5, horizontal: 5),
                       child: Container(
                         margin: EdgeInsets.only(left: 5),
                         width: deviceWidth * 0.4,
@@ -117,7 +117,7 @@ class home_pageState extends State<home_page> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10)),
                                 child: SizedBox(
-                                  height: deviceHeight * 0.15,
+                                  height: deviceHeight * 0.16,
                                   child: Container(
                                     height: deviceHeight * 0.17,
                                     width: double.infinity,
@@ -129,7 +129,70 @@ class home_pageState extends State<home_page> {
                                       ),
                                     ),
                                   ),
-                                ))
+                                )),
+                            Expanded(
+                                child: Container(
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      height: double.maxFinite,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Category",
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.grey),
+                                          ),
+                                          Text(
+                                            "Flower Name",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                          Text(
+                                            "Price",
+                                            style: TextStyle(
+                                                fontSize: 15,
+                                                color: Colors.grey),
+                                          ),
+                                          Text(
+                                            "\$45.5",
+                                            style: TextStyle(
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                      height: 40,
+                                      width: 40,
+                                      child: InkWell(
+                                        onTap: () {},
+                                        child: Container(
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Icon(
+                                            Icons.add,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      )),
+                                ],
+                              ),
+                            ))
                           ],
                         ),
                       ),
