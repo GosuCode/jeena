@@ -9,6 +9,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:jeena/models/product_model.dart';
 import 'package:jeena/widgets/home_title.dart';
+import 'package:jeena/widgets/plant_cards.dart';
 import 'package:jeena/widgets/plant_category.dart';
 import 'package:jeena/widgets/search_plant.dart';
 
@@ -32,13 +33,13 @@ class home_pageState extends State<home_page> {
     ProductModel(
         productName: "Hibiscus",
         productImage:
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fnurserylive.com%2Fproducts%2Fhibiscus-gudhal-flower-red-plant&psig=AOvVaw0QVNF-2F8ZVhP6VbZMhEWb&ust=1703226680973000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCJCp1f3zn4MDFQAAAAAdAAAAABAD",
+            "https://img.freepik.com/premium-photo/photo-green-plants-pot-with-dark-green-background_455711-607.jpg",
         category: "Indoor",
         price: 44.99),
     ProductModel(
         productName: "Red Amaryllis",
         productImage:
-            "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1607048273-img11o.jpg?crop=1xw:1.00xh;center,top&resize=980:*",
+            "https://static.vecteezy.com/system/resources/previews/027/534/786/large_2x/3d-realistic-green-plant-in-pot-on-a-dark-background-generative-ai-ai-generated-free-photo.jpeg",
         category: "Indoor",
         price: 60),
     ProductModel(
@@ -96,130 +97,17 @@ class home_pageState extends State<home_page> {
           SizedBox(
             height: deviceHeight * 0.025,
           ),
-          Container(
-            height: deviceHeight * 0.31,
-            child: ListView.builder(
-                itemCount: 5,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 5, horizontal: 5),
-                      child: Container(
-                        margin: EdgeInsets.only(left: 5),
-                        width: deviceWidth * 0.4,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                            Stack(
-                              children: [
-                                Card(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    child: SizedBox(
-                                      height: deviceHeight * 0.16,
-                                      child: Container(
-                                        height: deviceHeight * 0.17,
-                                        width: double.infinity,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          child: Image.network(
-                                            products[index].productImage,
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                      ),
-                                    )),
-                                Positioned(
-                                  top: 10,
-                                  right: 10,
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: Icon(
-                                      Icons.favorite,
-                                      color: Colors.white,
-                                      size: 25,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            Expanded(
-                                child: Container(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Expanded(
-                                    child: SizedBox(
-                                      height: double.maxFinite,
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            products[index].category,
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.grey),
-                                          ),
-                                          Text(
-                                            products[index].productName,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.clip,
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            "Price",
-                                            style: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.grey),
-                                          ),
-                                          Text(
-                                            '\$ ${products[index].price}',
-                                            style: TextStyle(
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                      height: 40,
-                                      width: 40,
-                                      child: InkWell(
-                                        onTap: () {},
-                                        child: Container(
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          child: Icon(
-                                            Icons.add,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      )),
-                                ],
-                              ),
-                            ))
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-          )
+          plantCards(deviceHeight, deviceWidth, products),
+          SizedBox(
+            height: deviceHeight * 0.025,
+          ),
+          Text(
+            'Popular',
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: deviceHeight * 0.025,
+          ),
         ],
       ),
     ));
