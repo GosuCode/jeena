@@ -20,9 +20,13 @@ Widget searchPlant(BuildContext context, double deviceWidth) {
                 SizedBox(
                   width: 5,
                 ),
-                Text(
-                  "Search Plant",
-                  style: TextStyle(color: Colors.grey),
+                Expanded(
+                  child: TextField(
+                    // onChanged: (e) {},
+                    decoration: InputDecoration.collapsed(
+                        hintText: "Search Plant",
+                        hintStyle: TextStyle(color: Colors.grey)),
+                  ),
                 ),
                 SizedBox(
                   width: 5,
@@ -37,7 +41,7 @@ Widget searchPlant(BuildContext context, double deviceWidth) {
       ),
       FloatingActionButton(
         elevation: 0,
-        backgroundColor: Colors.black,
+        backgroundColor: Theme.of(context).primaryColor,
         splashColor: Colors.grey,
         onPressed: () {},
         child: Icon(

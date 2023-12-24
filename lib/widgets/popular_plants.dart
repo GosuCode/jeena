@@ -4,7 +4,6 @@ import 'package:jeena/models/product_model.dart';
 Widget popularPlants(
     double deviceHeight, double deviceWidth, List<ProductModel> products) {
   return Container(
-    margin: EdgeInsets.only(left: 5),
     height: deviceHeight * 0.12,
     child: ListView.builder(
         itemCount: 5,

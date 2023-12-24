@@ -26,13 +26,14 @@ Widget plantCategory(
                         : Colors.white,
                     child: Container(
                         alignment: Alignment.center,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 12),
                         child: Text(category['name'],
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                                 color: category == selectedCategory
                                     ? Colors.white
-                                    : Colors.green[300]))),
+                                    : Theme.of(context).primaryColor,
+                                fontSize: 15))),
                   )),
             )
             .toList()),
