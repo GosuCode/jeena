@@ -99,7 +99,11 @@ class MyHomePageState extends State<MyHomePage> {
           SizedBox(
             height: deviceHeight * 0.025,
           ),
-          plantCards(deviceHeight, deviceWidth, products),
+          plantCards(deviceHeight, deviceWidth, products, (int index) {
+            setState(() {
+              products[index].isFav = !products[index].isFav;
+            });
+          }),
           SizedBox(
             height: deviceHeight * 0.025,
           ),

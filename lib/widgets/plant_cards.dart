@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jeena/models/product_model.dart';
 
-Widget plantCards(double deviceHeight, double deviceWidth, products) {
+Widget plantCards(double deviceHeight, double deviceWidth,
+    List<ProductModel> products, Function onFavChange) {
   return Container(
     height: deviceHeight * 0.31,
     child: ListView.builder(
@@ -39,7 +41,9 @@ Widget plantCards(double deviceHeight, double deviceWidth, products) {
                           top: 10,
                           right: 10,
                           child: InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              onFavChange(index);
+                            },
                             child: Icon(
                               Icons.favorite,
                               color: products[index].isFav

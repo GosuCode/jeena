@@ -121,11 +121,12 @@ class _FavState extends State<Fav> {
                 Text(
                   products[index].productName,
                   maxLines: 1,
-                  overflow: TextOverflow.clip,
+                  overflow:
+                      TextOverflow.ellipsis, //shows ... if not text doesn't fit
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '\$ ${products[index].price}',
+                  '\$${products[index].price}',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
