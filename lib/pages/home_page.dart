@@ -38,7 +38,7 @@ class MyHomePageState extends State<MyHomePage> {
         productName: "Red Amaryllis",
         productImage:
             "https://static.vecteezy.com/system/resources/previews/027/534/786/large_2x/3d-realistic-green-plant-in-pot-on-a-dark-background-generative-ai-ai-generated-free-photo.jpeg",
-        category: "Indoor",
+        category: "Outdoor",
         isFav: true,
         price: 60),
     ProductModel(
@@ -52,7 +52,7 @@ class MyHomePageState extends State<MyHomePage> {
         productName: "Orchid",
         productImage:
             "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1673638507-158057l3x-1673638490.jpg?crop=1xw:0.9128978224455612xh;center,top&resize=980:*",
-        category: "Indoor",
+        category: "Outdoor",
         isFav: false,
         price: 110),
     ProductModel(
@@ -103,7 +103,7 @@ class MyHomePageState extends State<MyHomePage> {
             setState(() {
               products[index].isFav = !products[index].isFav;
             });
-          }),
+          }, selectedCategory['name']),
           SizedBox(
             height: deviceHeight * 0.025,
           ),

@@ -79,7 +79,7 @@ class _FavState extends State<Fav> {
                           width: deviceWidth * 0.99,
                           child: products[index].isFav
                               ? favData(deviceWidth, index)
-                              : Container(),
+                              : Text(""),
                         ),
                       ),
                     );
