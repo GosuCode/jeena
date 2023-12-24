@@ -14,7 +14,6 @@ Widget plantCards(double deviceHeight, double deviceWidth, products) {
               child: Container(
                 margin: EdgeInsets.only(left: 5),
                 width: deviceWidth * 0.4,
-                color: Colors.white,
                 child: Column(
                   children: [
                     Stack(
@@ -43,7 +42,9 @@ Widget plantCards(double deviceHeight, double deviceWidth, products) {
                             onTap: () {},
                             child: Icon(
                               Icons.favorite,
-                              color: Colors.white,
+                              color: products[index].isFav
+                                  ? Colors.red
+                                  : Colors.white,
                               size: 25,
                             ),
                           ),

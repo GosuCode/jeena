@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.green,
           scaffoldBackgroundColor: Color.fromARGB(220, 230, 255, 246)),
-      home: landing(),
+      home: Landing(),
     );
   }
 }

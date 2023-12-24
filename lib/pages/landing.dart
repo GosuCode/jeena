@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:jeena/pages/fav.dart';
 import 'package:jeena/pages/home_page.dart';
 import 'package:jeena/pages/profile.dart';
 import 'package:jeena/pages/scan.dart';
 import 'package:jeena/pages/store.dart';
 
-class landing extends StatefulWidget {
-  const landing({super.key});
+class Landing extends StatefulWidget {
+  const Landing({super.key});
 
   @override
-  State<landing> createState() => _landingState();
+  State<Landing> createState() => _LandingState();
 }
 
-class _landingState extends State<landing> {
+class _LandingState extends State<Landing> {
   int _currentIndex = 0;
   List<Widget> pages = [
-    home_page(),
-    fav(),
+    MyHomePage(),
+    Fav(),
     Scan(),
     Store(),
     profile(),
