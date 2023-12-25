@@ -102,7 +102,6 @@ class MyHomePageState extends State<MyHomePage> {
     //     productImage: "",category: "Indoor",
     //     price: 44.99),
   ];
-  List<Map<String, dynamic>> searchResults = [];
 
   Map<String, dynamic> selectedCategory = categories.first;
   @override

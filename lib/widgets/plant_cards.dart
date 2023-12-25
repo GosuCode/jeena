@@ -6,7 +6,7 @@ Widget plantCards(double deviceHeight, double deviceWidth,
   return Container(
     height: deviceHeight * 0.31,
     child: ListView.builder(
-        itemCount: 5,
+        itemCount: 10,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return currentCategory == "All" ||

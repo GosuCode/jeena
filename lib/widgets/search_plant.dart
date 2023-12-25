@@ -22,7 +22,6 @@ Widget searchPlant(BuildContext context, double deviceWidth) {
                 ),
                 Expanded(
                   child: TextField(
-                    // onChanged: (e) {},
                     decoration: InputDecoration.collapsed(
                         hintText: "Search Plant",
                         hintStyle: TextStyle(color: Colors.grey)),
