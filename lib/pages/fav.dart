@@ -46,10 +46,6 @@ class _FavState extends State<Fav> {
         category: "Indoor",
         isFav: true,
         price: 38),
-    // ProductModel(
-    //     productName: "Pink Anthurium",
-    //     productImage: "",category: "Indoor",
-    //     price: 44.99),
   ];
   @override
   Widget build(BuildContext context) {
@@ -70,17 +66,17 @@ class _FavState extends State<Fav> {
                   itemCount: products.length,
                   scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
+                    if (!products[index].isFav) {
+                      return Container();
+                    }
                     return Card(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 5, horizontal: 5),
                         child: Container(
-                          height: deviceHeight * 0.17,
-                          width: deviceWidth * 0.99,
-                          child: products[index].isFav
-                              ? favData(deviceWidth, index)
-                              : Text(""),
-                        ),
+                            height: deviceHeight * 0.17,
+                            width: deviceWidth * 0.99,
+                            child: favData(deviceWidth, index)),
                       ),
                     );
                   }),

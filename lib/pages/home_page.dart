@@ -97,10 +97,6 @@ class MyHomePageState extends State<MyHomePage> {
         category: "succulent",
         isFav: true,
         price: 38),
-    // ProductModel(
-    //     productName: "Pink Anthurium",
-    //     productImage: "",category: "Indoor",
-    //     price: 44.99),
   ];
 
   Map<String, dynamic> selectedCategory = categories.first;
